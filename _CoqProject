@@ -1,0 +1,9 @@
+-Q . MiniVerif
+
+Basics/InductionLists.v
+Basics/Automation.v
+Imp/Syntax.v
+Imp/SmallStep.v
+Imp/Examples.v
+Langs/SimpleParser.v
+Langs/SimpleDFA.v
