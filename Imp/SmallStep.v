@@ -36,20 +36,20 @@ Reserved Notation "c1 '/' st1 '-->' c2 '/' st2"
 
 Inductive step : config -> config -> Prop :=
 | ST_Ass : forall st x a,
-    (CAss x a, st) --> (CSkip, update st x (aeval st a))
+    CAss x a / st --> CSkip / update st x (aeval st a)
 | ST_Seq1 : forall st c2,
-    (CSeq CSkip c2, st) --> (c2, st)
+    CSeq CSkip c2 / st --> c2 / st
 | ST_Seq2 : forall st st' c1 c1' c2,
-    (c1, st) --> (c1', st') ->
-    (CSeq c1 c2, st) --> (CSeq c1' c2, st')
+    c1 / st --> c1' / st' ->
+    CSeq c1 c2 / st --> CSeq c1' c2 / st'
 | ST_IfTrue : forall st b c1 c2,
     beval st b = true ->
-    (CIf b c1 c2, st) --> (c1, st)
+    CIf b c1 c2 / st --> c1 / st
 | ST_IfFalse : forall st b c1 c2,
     beval st b = false ->
-    (CIf b c1 c2, st) --> (c2, st)
+    CIf b c1 c2 / st --> c2 / st
 | ST_While : forall st b c,
-    (CWhile b c, st) --> (CIf b (CSeq c (CWhile b c)) CSkip, st)
+    CWhile b c / st --> CIf b (CSeq c (CWhile b c)) CSkip / st
 where "c1 '/' st1 '-->' c2 '/' st2" := (step (c1, st1) (c2, st2)).
 
 (* Multi-step closure *)
@@ -74,14 +74,12 @@ Theorem step_deterministic :
     step cfg cfg2 ->
     cfg1 = cfg2.
 Proof.
-  intros [c st] [c1 st1] [c2 st2] H1 H2.
-  generalize dependent c2; generalize dependent st2.
-  induction H1; intros st2 c2 H2; inversion H2; subst; try reflexivity;
+  intros cfg cfg1 cfg2 H1.
+  generalize dependent cfg2.
+  induction H1; intros cfg2 H2; inversion H2; subst; auto;
     try congruence.
-  - (* Seq2 *)
-    specialize (IHH1 _ _ H4). inversion IHH1; reflexivity.
-  - (* Seq2, other direction *)
-    specialize (IHH1 _ _ H4). inversion IHH1; reflexivity.
+  - (* ST_Seq2 case *)
+    f_equal. apply (IHH1 (c1'0, st'0)). assumption.
 Qed.
 
 End SmallStep.

@@ -46,8 +46,8 @@ Lemma rev_involutive : forall (A : Type) (xs : list A),
 Proof.
   intros A xs; induction xs; simpl.
   - reflexivity.
-  - rewrite rev_app_distr, IHxs; simpl.
-    now rewrite app_nil_r.
+  - rewrite rev_app_distr, IHxs; simpl; unfold app.
+    reflexivity.
 Qed.
 
 (* A simple “program”: counting occurrences *)

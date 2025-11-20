@@ -1,0 +1,126 @@
+DIGEST 9b0d750002133b5c3c734bc5cbb0a477
+FMiniVerif.Imp.Syntax
+R64:77 Coq.Strings.String <> <> lib
+R79:83 Coq.Arith.Arith <> <> lib
+R85:88 Coq.Lists.List <> <> lib
+R98:110 Coq.Lists.List ListNotations <> mod
+mod 121:126 <> Syntax
+def 141:143 Syntax var
+R148:153 Coq.Strings.String <> string ind
+ind 167:170 Syntax aexp
+constr 184:187 Syntax ANum
+constr 206:209 Syntax AVar
+constr 228:232 Syntax APlus
+constr 259:264 Syntax AMinus
+constr 290:294 Syntax AMult
+R195:198 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R192:194 Coq.Init.Datatypes <> nat ind
+R199:202 MiniVerif.Imp.Syntax <> aexp:1 ind
+R217:220 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R214:216 MiniVerif.Imp.Syntax Syntax var def
+R221:224 MiniVerif.Imp.Syntax <> aexp:1 ind
+R240:243 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R236:239 MiniVerif.Imp.Syntax <> aexp:1 ind
+R248:251 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R244:247 MiniVerif.Imp.Syntax <> aexp:1 ind
+R252:255 MiniVerif.Imp.Syntax <> aexp:1 ind
+R271:274 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R267:270 MiniVerif.Imp.Syntax <> aexp:1 ind
+R279:282 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R275:278 MiniVerif.Imp.Syntax <> aexp:1 ind
+R283:286 MiniVerif.Imp.Syntax <> aexp:1 ind
+R302:305 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R298:301 MiniVerif.Imp.Syntax <> aexp:1 ind
+R310:313 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R306:309 MiniVerif.Imp.Syntax <> aexp:1 ind
+R314:317 MiniVerif.Imp.Syntax <> aexp:1 ind
+scheme 167:170 Syntax aexp_rect
+scheme 167:170 Syntax aexp_ind
+scheme 167:170 Syntax aexp_rec
+scheme 167:170 Syntax aexp_sind
+ind 331:334 Syntax bexp
+constr 348:352 Syntax BTrue
+constr 364:369 Syntax BFalse
+constr 380:382 Syntax BEq
+constr 412:414 Syntax BLe
+constr 444:447 Syntax BNot
+constr 468:471 Syntax BAnd
+R357:360 MiniVerif.Imp.Syntax <> bexp:3 ind
+R373:376 MiniVerif.Imp.Syntax <> bexp:3 ind
+R393:396 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R389:392 MiniVerif.Imp.Syntax Syntax aexp ind
+R401:404 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R397:400 MiniVerif.Imp.Syntax Syntax aexp ind
+R405:408 MiniVerif.Imp.Syntax <> bexp:3 ind
+R425:428 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R421:424 MiniVerif.Imp.Syntax Syntax aexp ind
+R433:436 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R429:432 MiniVerif.Imp.Syntax Syntax aexp ind
+R437:440 MiniVerif.Imp.Syntax <> bexp:3 ind
+R457:460 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R453:456 MiniVerif.Imp.Syntax <> bexp:3 ind
+R461:464 MiniVerif.Imp.Syntax <> bexp:3 ind
+R481:484 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R477:480 MiniVerif.Imp.Syntax <> bexp:3 ind
+R489:492 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R485:488 MiniVerif.Imp.Syntax <> bexp:3 ind
+R493:496 MiniVerif.Imp.Syntax <> bexp:3 ind
+scheme 331:334 Syntax bexp_rect
+scheme 331:334 Syntax bexp_ind
+scheme 331:334 Syntax bexp_rec
+scheme 331:334 Syntax bexp_sind
+ind 510:512 Syntax com
+constr 526:530 Syntax CSkip
+constr 542:545 Syntax CAss
+constr 573:576 Syntax CSeq
+constr 603:605 Syntax CIf
+constr 641:646 Syntax CWhile
+R536:538 MiniVerif.Imp.Syntax <> com:5 ind
+R555:558 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R552:554 MiniVerif.Imp.Syntax Syntax var def
+R563:566 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R559:562 MiniVerif.Imp.Syntax Syntax aexp ind
+R567:569 MiniVerif.Imp.Syntax <> com:5 ind
+R586:589 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R583:585 MiniVerif.Imp.Syntax <> com:5 ind
+R593:596 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R590:592 MiniVerif.Imp.Syntax <> com:5 ind
+R597:599 MiniVerif.Imp.Syntax <> com:5 ind
+R617:620 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R613:616 MiniVerif.Imp.Syntax Syntax bexp ind
+R624:627 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R621:623 MiniVerif.Imp.Syntax <> com:5 ind
+R631:634 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R628:630 MiniVerif.Imp.Syntax <> com:5 ind
+R635:637 MiniVerif.Imp.Syntax <> com:5 ind
+R655:658 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R651:654 MiniVerif.Imp.Syntax Syntax bexp ind
+R662:665 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R659:661 MiniVerif.Imp.Syntax <> com:5 ind
+R666:668 MiniVerif.Imp.Syntax <> com:5 ind
+scheme 510:512 Syntax com_rect
+scheme 510:512 Syntax com_ind
+scheme 510:512 Syntax com_rec
+scheme 510:512 Syntax com_sind
+def 735:739 Syntax state
+R747:750 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R744:746 MiniVerif.Imp.Syntax Syntax var def
+R751:753 Coq.Init.Datatypes <> nat ind
+def 768:778 Syntax empty_state
+R782:786 MiniVerif.Imp.Syntax Syntax state def
+def 815:820 Syntax update
+R828:832 MiniVerif.Imp.Syntax Syntax state def
+binder 823:824 <> st:7
+R840:842 MiniVerif.Imp.Syntax Syntax var def
+binder 836:836 <> x:8
+R850:852 Coq.Init.Datatypes <> nat ind
+binder 846:846 <> n:9
+R857:861 MiniVerif.Imp.Syntax Syntax state def
+binder 872:872 <> y:10
+R880:889 Coq.Strings.String <> eqb def
+R891:891 MiniVerif.Imp.Syntax <> y:10 var
+R893:893 MiniVerif.Imp.Syntax <> x:8 var
+R907:908 MiniVerif.Imp.Syntax <> st:7 var
+R910:910 MiniVerif.Imp.Syntax <> y:10 var
+R900:900 MiniVerif.Imp.Syntax <> n:9 var
+R918:923 MiniVerif.Imp.Syntax Syntax <> mod
