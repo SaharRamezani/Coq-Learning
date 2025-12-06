@@ -19,7 +19,6 @@
 \#*\#
 
 # Build artifacts
+Makefile.conf
 Makefile.conf.local
-
-# Make conf file
-.Makefile.conf
+.Makefile.d
