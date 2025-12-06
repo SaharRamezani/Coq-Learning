@@ -33,3 +33,65 @@ Small Coq developments exploring foundational topics in formal verification:
 - `Langs/SimpleDFA.v`  
   A tiny DFA over `bool` symbols, with correctness lemmas relating its
   executable acceptance function to a relational definition.
+
+## Testing and Verification
+
+### Checking Individual Files
+
+To verify that a specific Coq file compiles and all proofs are valid:
+
+```bash
+coqc <filename>.v
+```
+
+For example:
+```bash
+coqc Basics/InductionLists.v
+coqc Imp/SmallStep.v
+```
+
+### Running Tests
+
+Some modules include separate test files. To run them:
+
+```bash
+coqc Basics/InductionListsTest.v
+```
+
+### Building the Entire Project
+
+The project includes a Makefile for building all files at once:
+
+```bash
+make
+```
+
+This will:
+- Compile all `.v` files in the correct dependency order
+- Generate `.vo` (compiled object) files
+- Report any errors or incomplete proofs
+
+To clean the build artifacts:
+
+```bash
+make clean
+```
+
+### Interactive Development
+
+To work with files interactively in an IDE (CoqIDE, Proof General, VSCode with Coq extension):
+
+1. Open the `.v` file in your editor
+2. Step through the file line by line
+3. Observe proof states and goals
+4. Verify that all proofs complete with `Qed` (not `Admitted`)
+
+### Verifying Completeness
+
+Check that no proofs are incomplete by searching for `Admitted`:
+
+```bash
+grep -r "Admitted" --include="*.v"
+```
+
+An empty result means all proofs are complete.
