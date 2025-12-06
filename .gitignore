@@ -16,6 +16,10 @@
 .*.sw?
 .vscode/
 .DS_Store
+\#*\#
 
 # Build artifacts
 Makefile.conf.local
+
+# Make conf file
+.Makefile.conf
