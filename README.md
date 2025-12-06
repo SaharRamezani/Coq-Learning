@@ -7,6 +7,16 @@ Small Coq developments exploring foundational topics in formal verification:
 - **Basic parser and automaton correctness** over strings (`Langs/`).
 - **Custom proof automation** using Ltac and the `auto`/`eauto` hint databases (`Basics/Automation.v`).
 
+## 📚 Complete Guide
+
+**New to Coq or want to understand this project in depth?** Check out the [**Complete Coq Guide**](COQ_GUIDE.md) which includes:
+- Introduction to Coq and theorem proving
+- Detailed explanation of how each file works
+- What theorems are being proved and why
+- Analysis of admitted proofs and how to complete them
+- Learning path from beginner to advanced
+- Resources and tips for mastering Coq
+
 ## Structure
 
 - `Basics/InductionLists.v`  
