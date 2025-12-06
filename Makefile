@@ -711,6 +711,7 @@ clean::
 	$(HIDE)rm -f $(VFILES:.v=.glob)
 	$(HIDE)rm -f $(VFILES:.v=.tex)
 	$(HIDE)rm -f $(VFILES:.v=.g.tex)
+	$(HIDE)find . -name '.*.aux' -type f -delete
 	$(HIDE)rm -f pretty-timed-success.ok
 	$(HIDE)rm -f META
 	$(HIDE)rm -rf html mlihtml
