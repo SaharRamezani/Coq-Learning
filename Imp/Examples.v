@@ -1,35 +1,31 @@
-(** * Example IMP programs and their behavior *)
+(** * Examples of arithmetic expression evaluation *)
 
-From Coq Require Import Strings.String Arith.
-From MiniVerif.Imp Require Import Syntax SmallStep.
+From Coq Require Import Arith.
+From MiniVerif.Imp Require Import SmallStep.
 
-Module Examples.
+(* Some example expressions *)
 
-Import Syntax SmallStep.
+Definition ex1 : aexp := APlus (ANum 3) (ANum 4).
+Definition ex2 : aexp := AMult (ANum 2) (ANum 5).
+Definition ex3 : aexp := APlus (AMult (ANum 2) (ANum 3)) (ANum 4).
 
-(* Program: x := x + 1 *)
-
-Definition inc (x : var) : com :=
-  CAss x (APlus (AVar x) (ANum 1)).
-
-Lemma inc_correct :
-  forall st x,
-    let st' := snd (CSkip, update st x (aeval st (APlus (AVar x) (ANum 1)))) in
-    (inc x, st) --> (CSkip, update st x (st x + 1)).
+(* Example: 3 + 4 steps to 7 *)
+Example ex1_steps : ex1 --> ANum 7.
 Proof.
-  intros st x; simpl.
-  econstructor.
+  apply ST_PlusConstConst.
 Qed.
 
-(* A small while-loop: decrement x until zero *)
+(* Example: 2 * 5 steps to 10 *)
+Example ex2_steps : ex2 --> ANum 10.
+Proof.
+  apply ST_MultConstConst.
+Qed.
 
-Definition dec_to_zero (x : var) : com :=
-  CWhile (BLe (ANum 1) (AVar x))
-    (CAss x (AMinus (AVar x) (ANum 1))).
-
-(* You can then prove properties like:
-   starting in a state where st x = n, after
-   some number of steps the loop terminates
-   with x = 0. (Sketch; you can fill it out.) *)
-
-End Examples.
+(* Example: (2 * 3) + 4 multisteps to 10 *)
+Example ex3_multisteps : multi ex3 (ANum 10).
+Proof.
+  unfold ex3.
+  eapply multi_step. apply ST_Plus1. apply ST_MultConstConst.
+  eapply multi_step. apply ST_PlusConstConst.
+  apply multi_refl.
+Qed.

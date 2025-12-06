@@ -1,85 +1,66 @@
-(** * Small-step semantics for IMP *)
+(** * Small-step semantics for arithmetic expressions *)
 
-From Coq Require Import Strings.String Arith Bool.
-From MiniVerif.Imp Require Import Syntax.
+From Coq Require Import Arith.
 
-Module SmallStep.
+(* Simple arithmetic expressions *)
+Inductive aexp : Type :=
+| ANum : nat -> aexp
+| APlus : aexp -> aexp -> aexp
+| AMult : aexp -> aexp -> aexp.
 
-Import Syntax.
-
-(* Evaluation of arithmetic/boolean expressions in a state *)
-
-Fixpoint aeval (st : state) (a : aexp) : nat :=
+(* An expression is a value if it's just a number *)
+Definition is_value (a : aexp) : Prop :=
   match a with
-  | ANum n => n
-  | AVar x => st x
-  | APlus a1 a2 => aeval st a1 + aeval st a2
-  | AMinus a1 a2 => aeval st a1 - aeval st a2
-  | AMult a1 a2 => aeval st a1 * aeval st a2
+  | ANum _ => True
+  | _ => False
   end.
 
-Fixpoint beval (st : state) (b : bexp) : bool :=
-  match b with
-  | BTrue => true
-  | BFalse => false
-  | BEq a1 a2 => Nat.eqb (aeval st a1) (aeval st a2)
-  | BLe a1 a2 => Nat.leb (aeval st a1) (aeval st a2)
-  | BNot b1 => negb (beval st b1)
-  | BAnd b1 b2 => andb (beval st b1) (beval st b2)
-  end.
+(* Small-step reduction relation *)
+Reserved Notation "a '-->' b" (at level 40).
 
-(* Configurations *)
-Definition config := (com * state)%type.
+Inductive step : aexp -> aexp -> Prop :=
+| ST_PlusConstConst : forall n1 n2,
+    APlus (ANum n1) (ANum n2) --> ANum (n1 + n2)
+| ST_Plus1 : forall a1 a1' a2,
+    a1 --> a1' ->
+    APlus a1 a2 --> APlus a1' a2
+| ST_Plus2 : forall n1 a2 a2',
+    a2 --> a2' ->
+    APlus (ANum n1) a2 --> APlus (ANum n1) a2'
+| ST_MultConstConst : forall n1 n2,
+    AMult (ANum n1) (ANum n2) --> ANum (n1 * n2)
+| ST_Mult1 : forall a1 a1' a2,
+    a1 --> a1' ->
+    AMult a1 a2 --> AMult a1' a2
+| ST_Mult2 : forall n1 a2 a2',
+    a2 --> a2' ->
+    AMult (ANum n1) a2 --> AMult (ANum n1) a2'
+where "a '-->' b" := (step a b).
 
-Reserved Notation "c1 '/' st1 '-->' c2 '/' st2"
-  (at level 40, st1 at level 39, c2 at level 39).
+(* Multi-step relation *)
+Inductive multi : aexp -> aexp -> Prop :=
+| multi_refl : forall a,
+    multi a a
+| multi_step : forall a b c,
+    a --> b ->
+    multi b c ->
+    multi a c.
 
-Inductive step : config -> config -> Prop :=
-| ST_Ass : forall st x a,
-    CAss x a / st --> CSkip / update st x (aeval st a)
-| ST_Seq1 : forall st c2,
-    CSeq CSkip c2 / st --> c2 / st
-| ST_Seq2 : forall st st' c1 c1' c2,
-    c1 / st --> c1' / st' ->
-    CSeq c1 c2 / st --> CSeq c1' c2 / st'
-| ST_IfTrue : forall st b c1 c2,
-    beval st b = true ->
-    CIf b c1 c2 / st --> c1 / st
-| ST_IfFalse : forall st b c1 c2,
-    beval st b = false ->
-    CIf b c1 c2 / st --> c2 / st
-| ST_While : forall st b c,
-    CWhile b c / st --> CIf b (CSeq c (CWhile b c)) CSkip / st
-where "c1 '/' st1 '-->' c2 '/' st2" := (step (c1, st1) (c2, st2)).
+Notation "a '-->*' b" := (multi a b) (at level 40).
 
-(* Multi-step closure *)
-
-Inductive multi {X} (R : X -> X -> Prop) : X -> X -> Prop :=
-| multi_refl : forall x, multi R x x
-| multi_step : forall x y z,
-    R x y -> multi R y z -> multi R x z.
-
-Notation "R '**' " := (multi R) (at level 70).
-
-Definition multistep := multi step.
-
-Notation "cfg1 '==>*' cfg2" := (multistep cfg1 cfg2)
-  (at level 40).
-
-(* Determinism of single-step *)
-
-Theorem step_deterministic :
-  forall cfg cfg1 cfg2,
-    step cfg cfg1 ->
-    step cfg cfg2 ->
-    cfg1 = cfg2.
+(* Example: (2 + 3) * 4 reduces to 20 *)
+Example test_multistep :
+  multi (AMult (APlus (ANum 2) (ANum 3)) (ANum 4))
+        (ANum 20).
 Proof.
-  intros cfg cfg1 cfg2 H1.
-  generalize dependent cfg2.
-  induction H1; intros cfg2 H2; inversion H2; subst; auto;
-    try congruence.
-  - (* ST_Seq2 case *)
-    f_equal. apply (IHH1 (c1'0, st'0)). assumption.
+  eapply multi_step. apply ST_Mult1. apply ST_PlusConstConst.
+  eapply multi_step. apply ST_MultConstConst.
+  apply multi_refl.
 Qed.
 
-End SmallStep.
+(* Example: 3 + 4 reduces to 7 *)
+Example test_step_simple :
+  APlus (ANum 3) (ANum 4) --> ANum 7.
+Proof.
+  apply ST_PlusConstConst.
+Qed.
