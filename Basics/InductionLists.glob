@@ -1,5 +1,5 @@
 DIGEST eb93dff44652fb9e4d6d37e3a89802ff
-FMiniVerif.Basics.InductionLists
+FInductionLists
 R85:88 Coq.Lists.List <> <> lib
 R90:94 Coq.Arith.Arith <> <> lib
 R96:98 Coq.micromega.Lia <> <> lib
@@ -8,97 +8,97 @@ mod 131:144 <> InductionLists
 def 191:193 InductionLists app
 binder 196:196 <> A:1
 R208:211 Coq.Init.Datatypes <> list ind
-R213:213 MiniVerif.Basics.InductionLists <> A:1 var
+R213:213 InductionLists <> A:1 var
 binder 200:201 <> xs:2
 binder 203:204 <> ys:3
 R218:221 Coq.Init.Datatypes <> list ind
-R223:223 MiniVerif.Basics.InductionLists <> A:1 var
-R236:237 MiniVerif.Basics.InductionLists <> xs:2 var
+R223:223 InductionLists <> A:1 var
+R236:237 InductionLists <> xs:2 var
 R248:249 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R254:255 MiniVerif.Basics.InductionLists <> ys:3 var
+R254:255 InductionLists <> ys:3 var
 R262:265 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
 R274:277 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R278:280 MiniVerif.Basics.InductionLists <> app:4 def
-R286:287 MiniVerif.Basics.InductionLists <> ys:3 var
+R278:280 InductionLists <> app:4 def
+R286:287 InductionLists <> ys:3 var
 prf 303:311 InductionLists app_nil_r
 binder 323:323 <> A:6
 R339:342 Coq.Init.Datatypes <> list ind
-R344:344 MiniVerif.Basics.InductionLists <> A:6 var
+R344:344 InductionLists <> A:6 var
 binder 334:335 <> xs:7
 R359:361 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R350:352 MiniVerif.Basics.InductionLists InductionLists app def
+R350:352 InductionLists InductionLists app def
 R357:358 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R354:355 MiniVerif.Basics.InductionLists <> xs:7 var
-R362:363 MiniVerif.Basics.InductionLists <> xs:7 var
+R354:355 InductionLists <> xs:7 var
+R362:363 InductionLists <> xs:7 var
 prf 433:441 InductionLists app_assoc
 binder 453:453 <> A:8
 R475:478 Coq.Init.Datatypes <> list ind
-R480:480 MiniVerif.Basics.InductionLists <> A:8 var
+R480:480 InductionLists <> A:8 var
 binder 464:465 <> xs:9
 binder 467:468 <> ys:10
 binder 470:471 <> zs:11
 R504:506 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R486:488 MiniVerif.Basics.InductionLists InductionLists app def
-R494:496 MiniVerif.Basics.InductionLists InductionLists app def
-R501:502 MiniVerif.Basics.InductionLists <> zs:11 var
-R498:499 MiniVerif.Basics.InductionLists <> ys:10 var
-R490:491 MiniVerif.Basics.InductionLists <> xs:9 var
-R507:509 MiniVerif.Basics.InductionLists InductionLists app def
-R523:524 MiniVerif.Basics.InductionLists <> zs:11 var
-R512:514 MiniVerif.Basics.InductionLists InductionLists app def
-R519:520 MiniVerif.Basics.InductionLists <> ys:10 var
-R516:517 MiniVerif.Basics.InductionLists <> xs:9 var
+R486:488 InductionLists InductionLists app def
+R494:496 InductionLists InductionLists app def
+R501:502 InductionLists <> zs:11 var
+R498:499 InductionLists <> ys:10 var
+R490:491 InductionLists <> xs:9 var
+R507:509 InductionLists InductionLists app def
+R523:524 InductionLists <> zs:11 var
+R512:514 InductionLists InductionLists app def
+R519:520 InductionLists <> ys:10 var
+R516:517 InductionLists <> xs:9 var
 def 650:652 InductionLists rev
 binder 655:655 <> A:12
 R664:667 Coq.Init.Datatypes <> list ind
-R669:669 MiniVerif.Basics.InductionLists <> A:12 var
+R669:669 InductionLists <> A:12 var
 binder 659:660 <> xs:13
 R674:677 Coq.Init.Datatypes <> list ind
-R679:679 MiniVerif.Basics.InductionLists <> A:12 var
-R692:693 MiniVerif.Basics.InductionLists <> xs:13 var
+R679:679 InductionLists <> A:12 var
+R692:693 InductionLists <> xs:13 var
 R704:705 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R710:711 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R718:721 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R729:731 MiniVerif.Basics.InductionLists InductionLists app def
+R729:731 InductionLists InductionLists app def
 R743:743 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
 R745:745 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R734:736 MiniVerif.Basics.InductionLists <> rev:14 def
+R734:736 InductionLists <> rev:14 def
 prf 761:773 InductionLists rev_app_distr
 binder 785:785 <> A:16
 R804:807 Coq.Init.Datatypes <> list ind
-R809:809 MiniVerif.Basics.InductionLists <> A:16 var
+R809:809 InductionLists <> A:16 var
 binder 796:797 <> xs:17
 binder 799:800 <> ys:18
 R830:832 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R815:817 MiniVerif.Basics.InductionLists InductionLists rev def
-R820:822 MiniVerif.Basics.InductionLists InductionLists app def
-R827:828 MiniVerif.Basics.InductionLists <> ys:18 var
-R824:825 MiniVerif.Basics.InductionLists <> xs:17 var
-R833:835 MiniVerif.Basics.InductionLists InductionLists app def
-R847:849 MiniVerif.Basics.InductionLists InductionLists rev def
-R851:852 MiniVerif.Basics.InductionLists <> xs:17 var
-R838:840 MiniVerif.Basics.InductionLists InductionLists rev def
-R842:843 MiniVerif.Basics.InductionLists <> ys:18 var
-R918:926 MiniVerif.Basics.InductionLists InductionLists app_nil_r thm
-R918:926 MiniVerif.Basics.InductionLists InductionLists app_nil_r thm
-R918:926 MiniVerif.Basics.InductionLists InductionLists app_nil_r thm
-R947:955 MiniVerif.Basics.InductionLists InductionLists app_assoc thm
-R947:955 MiniVerif.Basics.InductionLists InductionLists app_assoc thm
-R947:955 MiniVerif.Basics.InductionLists InductionLists app_assoc thm
+R815:817 InductionLists InductionLists rev def
+R820:822 InductionLists InductionLists app def
+R827:828 InductionLists <> ys:18 var
+R824:825 InductionLists <> xs:17 var
+R833:835 InductionLists InductionLists app def
+R847:849 InductionLists InductionLists rev def
+R851:852 InductionLists <> xs:17 var
+R838:840 InductionLists InductionLists rev def
+R842:843 InductionLists <> ys:18 var
+R918:926 InductionLists InductionLists app_nil_r thm
+R918:926 InductionLists InductionLists app_nil_r thm
+R918:926 InductionLists InductionLists app_nil_r thm
+R947:955 InductionLists InductionLists app_assoc thm
+R947:955 InductionLists InductionLists app_assoc thm
+R947:955 InductionLists InductionLists app_assoc thm
 prf 983:996 InductionLists rev_involutive
 binder 1008:1008 <> A:19
 R1024:1027 Coq.Init.Datatypes <> list ind
-R1029:1029 MiniVerif.Basics.InductionLists <> A:19 var
+R1029:1029 InductionLists <> A:19 var
 binder 1019:1020 <> xs:20
 R1047:1049 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1035:1037 MiniVerif.Basics.InductionLists InductionLists rev def
-R1040:1042 MiniVerif.Basics.InductionLists InductionLists rev def
-R1044:1045 MiniVerif.Basics.InductionLists <> xs:20 var
-R1050:1051 MiniVerif.Basics.InductionLists <> xs:20 var
-R1126:1138 MiniVerif.Basics.InductionLists InductionLists rev_app_distr thm
-R1161:1163 MiniVerif.Basics.InductionLists InductionLists app def
-R1126:1138 MiniVerif.Basics.InductionLists InductionLists rev_app_distr thm
-R1126:1138 MiniVerif.Basics.InductionLists InductionLists rev_app_distr thm
+R1035:1037 InductionLists InductionLists rev def
+R1040:1042 InductionLists InductionLists rev def
+R1044:1045 InductionLists <> xs:20 var
+R1050:1051 InductionLists <> xs:20 var
+R1126:1138 InductionLists InductionLists rev_app_distr thm
+R1161:1163 InductionLists InductionLists app def
+R1126:1138 InductionLists InductionLists rev_app_distr thm
+R1126:1138 InductionLists InductionLists rev_app_distr thm
 def 1250:1254 InductionLists count
 R1261:1263 Coq.Init.Datatypes <> nat ind
 binder 1257:1257 <> x:21
@@ -106,39 +106,39 @@ R1272:1275 Coq.Init.Datatypes <> list ind
 R1277:1279 Coq.Init.Datatypes <> nat ind
 binder 1267:1268 <> xs:22
 R1284:1286 Coq.Init.Datatypes <> nat ind
-R1299:1300 MiniVerif.Basics.InductionLists <> xs:22 var
+R1299:1300 InductionLists <> xs:22 var
 R1311:1312 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R1324:1327 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
 R1334:1334 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
 R1363:1366 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
 R1338:1344 Coq.Arith.PeanoNat Nat eqb def
-R1346:1346 MiniVerif.Basics.InductionLists <> x:21 var
-R1367:1371 MiniVerif.Basics.InductionLists <> count:23 def
-R1373:1373 MiniVerif.Basics.InductionLists <> x:21 var
+R1346:1346 InductionLists <> x:21 var
+R1367:1371 InductionLists <> count:23 def
+R1373:1373 InductionLists <> x:21 var
 def 1395:1403 InductionLists replicate
 R1412:1414 Coq.Init.Datatypes <> nat ind
 binder 1406:1406 <> n:25
 binder 1408:1408 <> x:26
 R1419:1422 Coq.Init.Datatypes <> list ind
 R1424:1426 Coq.Init.Datatypes <> nat ind
-R1439:1439 MiniVerif.Basics.InductionLists <> n:25 var
+R1439:1439 InductionLists <> n:25 var
 R1455:1456 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R1462:1462 Coq.Init.Datatypes <> S constr
 R1471:1474 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R1470:1470 MiniVerif.Basics.InductionLists <> x:26 var
-R1475:1483 MiniVerif.Basics.InductionLists <> replicate:27 def
-R1488:1488 MiniVerif.Basics.InductionLists <> x:26 var
+R1470:1470 InductionLists <> x:26 var
+R1475:1483 InductionLists <> replicate:27 def
+R1488:1488 InductionLists <> x:26 var
 prf 1504:1518 InductionLists count_replicate
 binder 1531:1531 <> n:29
 binder 1533:1533 <> x:30
 R1563:1565 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1540:1544 MiniVerif.Basics.InductionLists InductionLists count def
-R1546:1546 MiniVerif.Basics.InductionLists <> x:30 var
-R1549:1557 MiniVerif.Basics.InductionLists InductionLists replicate def
-R1559:1559 MiniVerif.Basics.InductionLists <> n:29 var
-R1561:1561 MiniVerif.Basics.InductionLists <> x:30 var
-R1566:1566 MiniVerif.Basics.InductionLists <> n:29 var
+R1540:1544 InductionLists InductionLists count def
+R1546:1546 InductionLists <> x:30 var
+R1549:1557 InductionLists InductionLists replicate def
+R1559:1559 InductionLists <> n:29 var
+R1561:1561 InductionLists <> x:30 var
+R1566:1566 InductionLists <> n:29 var
 R1636:1647 Coq.Arith.PeanoNat Nat eqb_refl thm
 R1636:1647 Coq.Arith.PeanoNat Nat eqb_refl thm
 R1636:1647 Coq.Arith.PeanoNat Nat eqb_refl thm
-R1670:1683 MiniVerif.Basics.InductionLists InductionLists <> mod
+R1670:1683 InductionLists InductionLists <> mod

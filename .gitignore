@@ -1,0 +1,21 @@
+# Coq compiled files
+*.vo
+*.vok
+*.vos
+*.glob
+*.aux
+
+# Coq cache
+.coq-native/
+.lia.cache
+.nia.cache
+
+# Editor files
+*~
+*.swp
+.*.sw?
+.vscode/
+.DS_Store
+
+# Build artifacts
+Makefile.conf.local
