@@ -54,8 +54,8 @@ Proof.
   intros s H.
   unfold check in H.
   destruct (check_aux 0 s) as [stk|] eqn:Heq; try discriminate.
-  apply beq_nat_true in H.
-  subst stk.
+  destruct stk; [| discriminate].
+  (* stk = 0, so the check passed *)
   (* Sketch: prove a more general lemma about [check_aux stk s = Some stk']
      implying that [s] can be decomposed into a sequence of balanced subparts,
      then instantiate with [stk = 0] and [stk' = 0]. *)

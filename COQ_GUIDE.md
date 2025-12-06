@@ -728,6 +728,12 @@ Qed.
 
 For `check_sound`, the proof is more involved and requires a stronger induction principle.
 
+**Note on Modern Coq**: The original proof sketch used `beq_nat_true`, which is deprecated. The current version uses pattern matching instead:
+```coq
+destruct stk; [| discriminate].
+(* This pattern matches on stk and eliminates the case where stk ≠ 0 *)
+```
+
 **Difficulty**: Hard - requires careful invariant reasoning
 
 ---
@@ -940,6 +946,8 @@ Once you've mastered the basics, try:
 4. **Print Everything**: Use `Print`, `Check`, `About` to explore
 5. **Practice Daily**: Proof skills need regular practice
 6. **Don't Give Up**: Some proofs take time to "click"
+7. **Use Modern Standard Library**: Prefer `Nat.eqb` over `beq_nat`, `Nat.add_comm` over `plus_comm`, etc.
+8. **Check Coq Version**: This project works with Coq 8.15+ with the modern standard library
 
 ---
 

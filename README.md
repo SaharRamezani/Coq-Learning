@@ -7,7 +7,7 @@ Small Coq developments exploring foundational topics in formal verification:
 - **Basic parser and automaton correctness** over strings (`Langs/`).
 - **Custom proof automation** using Ltac and the `auto`/`eauto` hint databases (`Basics/Automation.v`).
 
-## 📚 Complete Guide
+## Complete Guide
 
 **New to Coq or want to understand this project in depth?** Check out the [**Complete Coq Guide**](COQ_GUIDE.md) which includes:
 - Introduction to Coq and theorem proving
@@ -97,6 +97,36 @@ To work with files interactively in an IDE (CoqIDE, Proof General, VSCode with C
 4. Verify that all proofs complete with `Qed` (not `Admitted`)
 
 ### Verifying Completeness
+
+To check if all theorems are proved (not `Admitted`):
+
+```bash
+grep -r "Admitted" --include="*.v" .
+```
+
+## Common Issues and Solutions
+
+### Deprecated Standard Library Functions
+
+This project uses modern Coq standard library functions. If you encounter errors about missing functions:
+
+- `beq_nat` is deprecated → use `Nat.eqb` instead
+- `beq_nat_true` is deprecated → use `Nat.eqb_eq` or pattern matching
+- `plus_comm` is deprecated → use `Nat.add_comm` instead
+
+Example fix for boolean equality:
+```coq
+(* Old style - doesn't work in modern Coq *)
+apply beq_nat_true in H.
+
+(* Modern style - option 1: use Nat.eqb_eq *)
+apply Nat.eqb_eq in H.
+
+(* Modern style - option 2: pattern match *)
+destruct n; [| discriminate].
+```
+
+### Build Dependencies
 
 Check that no proofs are incomplete by searching for `Admitted`:
 
